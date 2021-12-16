@@ -23,7 +23,7 @@
 	
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="org.mariadb.jdbc.Driver"></beans:property>
-		<beans:property name="url" value="jdbc:mariadb://localhost:8001/springstudy?useUnicode=true"></beans:property>
+		<beans:property name="url" value="jdbc:mariadb://127.0.0.1:8001/springstudy?useUnicode=true"></beans:property>
 		<beans:property name="username" value="root"></beans:property>
 		<beans:property name="password" value="toor"></beans:property>
 	</beans:bean>
@@ -33,7 +33,7 @@
 		<beans:property name="mapperLocations" value="classpath:mappers/*.xml"></beans:property>
 	</beans:bean>
 	
-	<beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<beans:bean id="SqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sqlSessionFactory"></beans:constructor-arg>
 	</beans:bean>
 	
