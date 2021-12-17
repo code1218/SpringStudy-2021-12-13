@@ -10,5 +10,15 @@ public class SignupReqDto {
 	private String email;
 	
 	private int submitFlag;
-	private boolean idCheckFlag;
+	
+	public SignupRespDto toResponseDto(boolean idCheckFlag) {
+		return SignupRespDto.builder()
+				.username(username)
+				.password(password)
+				.name(name)
+				.email(email)
+				.idCheckFlag(idCheckFlag)
+				.build();
+				
+	}
 }

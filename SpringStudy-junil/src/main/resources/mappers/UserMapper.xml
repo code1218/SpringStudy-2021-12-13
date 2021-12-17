@@ -17,4 +17,18 @@
 			user_mst;		
 	</select>
 	
+	<select id="idCheck" resultType="Integer" parameterType="String">
+		select
+			count(username)
+		from
+			user_mst
+		where
+			username = #{username};
+	</select>
+	
 </mapper>
+
+
+
+
+

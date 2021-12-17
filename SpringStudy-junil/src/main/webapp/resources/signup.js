@@ -2,13 +2,19 @@ const signupInputs = document.querySelectorAll('.signup-ip');
 const idCheck = document.querySelector('#id-check');
 const idCheckFlag = document.querySelector('#id-check-flag');
 const signupForm = document.querySelector('form');
-const submitFlag = document.querySelector('submit-flag');
+const submitFlag = document.querySelector('#submit-flag');
+
+if(idCheckFlag.value == 'true'){
+	alert('사용 가능한 아이디 입니다.');
+}else if(idCheckFlag.value == 'false'){
+	alert('이미 존재하는 아이디 입니다.');
+}
 
 idCheck.onclick = () => {
 	if(signupInputs[0].value.length == 0){
 		alert('아이디를 입력해 주세요.');
 	}else{
-		submitFlag.value = 1;
+		submitFlag.value = '1';
 		signupForm.submit();
 	}
 }
