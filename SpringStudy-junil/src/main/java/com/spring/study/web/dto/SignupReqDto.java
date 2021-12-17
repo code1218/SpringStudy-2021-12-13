@@ -1,5 +1,7 @@
 package com.spring.study.web.dto;
 
+import com.spring.study.domain.user.User;
+
 import lombok.Data;
 
 @Data
@@ -21,4 +23,19 @@ public class SignupReqDto {
 				.build();
 				
 	}
+	
+	public User toEntity() {
+		return User.builder()
+				.username(username)
+				.password(password)
+				.name(name)
+				.email(email)
+				.build();
+	}
 }
+
+
+
+
+
+

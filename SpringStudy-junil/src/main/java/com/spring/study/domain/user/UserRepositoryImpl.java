@@ -21,4 +21,9 @@ public class UserRepositoryImpl implements UserRepository {
 	public int idCheck(String username) {
 		return sqlSession.selectOne("com.spring.study.domain.user.UserRepository.idCheck", username);
 	}
+
+	@Override
+	public int insertUser(User user) {
+		return sqlSession.insert("com.spring.study.domain.user.UserRepository.insertUser", user);
+	}
 }

@@ -3,6 +3,7 @@ package com.spring.study.service.auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.study.domain.user.User;
 import com.spring.study.domain.user.UserRepository;
 import com.spring.study.web.dto.SignupReqDto;
 import com.spring.study.web.dto.SignupRespDto;
@@ -22,6 +23,19 @@ public class AuthServiceImpl implements AuthService {
 		}else {
 			//이미 존재하는 아이디
 			return signupReqDto.toResponseDto(false);
+		}
+	}
+
+	@Override
+	public boolean signup(SignupReqDto signupReqDto) {
+		User userEntity = signupReqDto.toEntity(); 
+		int insertCount = userRepository.insertUser(userEntity);
+		if(0 < insertCount) {
+			System.out.println("insert 성공");
+			return true;
+		}else {
+			System.out.println("insert 실패");
+			return false;
 		}
 	}
 	

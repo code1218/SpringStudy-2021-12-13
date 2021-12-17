@@ -6,5 +6,6 @@ import com.spring.study.web.dto.SignupRespDto;
 public interface AuthService {
 	
 	public SignupRespDto usernameCheck(SignupReqDto signupReqDto);
+	public boolean signup(SignupReqDto signupReqDto);
 	
 }

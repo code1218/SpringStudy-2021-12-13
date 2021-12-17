@@ -18,7 +18,7 @@
 		비밀번호: <input type="password" class="signup-ip" name="password" value="${signupRespDto.password }" required="required"></br>
 		이름: <input type="text" class="signup-ip" name="name" value="${signupRespDto.name }" required="required"></br>
 		이메일: <input type="email" class="signup-ip" name="email" value="${signupRespDto.email }" required="required"></br>
-		<button>가입하기</button>
+		<button type="button" id="signup-btn">가입하기</button>
 		<button type="reset">재작성</button>
 	</form>
 	

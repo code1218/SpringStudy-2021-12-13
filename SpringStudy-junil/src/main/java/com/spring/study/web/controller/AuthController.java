@@ -29,9 +29,15 @@ public class AuthController {
 			
 		}else {
 			// 회원가입 진행(insert)
+			boolean signupSuccessFlag = authService.signup(signupReqDto);
+			if(signupSuccessFlag == true) {
+				return "redirect:/signin";
+			}else {
+				return "auth/signup";
+			}
 			
 		}
-		return "auth/signin";
+		
 	}
 	
 }

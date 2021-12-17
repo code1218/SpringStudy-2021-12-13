@@ -26,6 +26,20 @@
 			username = #{username};
 	</select>
 	
+	<insert id="insertUser" parameterType="com.spring.study.domain.user.User">
+		insert into
+			user_mst
+		values(
+			0,
+			#{username},
+			#{password},
+			#{name},
+			#{email},
+			now(),
+			now()
+		)
+	</insert>
+	
 </mapper>
 
 
