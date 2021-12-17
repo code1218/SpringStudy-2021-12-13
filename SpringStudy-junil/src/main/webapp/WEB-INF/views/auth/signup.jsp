@@ -10,7 +10,9 @@
 	회원가입페이지
 	
 	<form action="/study/signup" method="post">
-		아이디: <input type="text" id="username" class="signup-ip" name="username" required="required">
+		<input type="hidden" id="submit-flag" name="submitFlag" value="0">
+		아이디: <input type="text" class="signup-ip" name="username" value="${username }" required="required">
+		<input type="hidden" id="id-check-flag" name="idCheckFlag" value="${empty idCheckFlag ? false : idCheckFlag}">
 		<button type="button" id="id-check">중복확인</button></br>
 		
 		비밀번호: <input type="password" class="signup-ip" name="password" required="required"></br>

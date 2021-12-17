@@ -12,17 +12,14 @@ public class AuthController {
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(SignupReqDto signupReqDto) {
-		System.out.println("요청됨?");
-		System.out.println(signupReqDto);
-		signupReqDto.getUsername();
+		if(signupReqDto.getSubmitFlag() == 1) {
+			// 아이디 중복확인.(select)
+			
+		}else {
+			// 회원가입 진행(insert)
+			
+		}
 		return "auth/signin";
 	}
 	
-	@RequestMapping(value = "/signup2", method = RequestMethod.GET)
-	public String signup2(@RequestParam("username") String username, @RequestParam("password") String password) {
-		System.out.println("요청됨?");
-		System.out.println("username: " + username);
-		System.out.println("password: " + password);
-		return null;
-	}
 }

@@ -1,11 +1,15 @@
-const username = document.querySelector('#username');
+const signupInputs = document.querySelectorAll('.signup-ip');
 const idCheck = document.querySelector('#id-check');
-const signupValues = document.querySelectorAll('.signup-ip');
+const idCheckFlag = document.querySelector('#id-check-flag');
+const signupForm = document.querySelector('form');
+const submitFlag = document.querySelector('submit-flag');
 
 idCheck.onclick = () => {
-	alert('아이디: ' + username.value);
-	for(let i = 0; i < signupValues.length; i++){
-		alert(signupValues[i].value);
+	if(signupInputs[0].value.length == 0){
+		alert('아이디를 입력해 주세요.');
+	}else{
+		submitFlag.value = 1;
+		signupForm.submit();
 	}
 }
 

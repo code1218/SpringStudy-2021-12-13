@@ -8,4 +8,7 @@ public class SignupReqDto {
 	private String password;
 	private String name;
 	private String email;
+	
+	private int submitFlag;
+	private boolean idCheckFlag;
 }
