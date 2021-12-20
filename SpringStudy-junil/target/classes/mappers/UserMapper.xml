@@ -37,8 +37,18 @@
 			#{email},
 			now(),
 			now()
-		)
+		);
 	</insert>
+	
+	<select id="signin" resultType="Integer" parameterType="com.spring.study.domain.user.User">
+		SELECT
+			count(um.username) + count(um2.password)
+		FROM
+			user_mst um
+			LEFT OUTER JOIN user_mst um2 ON(um2.id = um.id AND um2.password = #{password})
+		WHERE
+			um.username = #{username};
+	</select>
 	
 </mapper>
 

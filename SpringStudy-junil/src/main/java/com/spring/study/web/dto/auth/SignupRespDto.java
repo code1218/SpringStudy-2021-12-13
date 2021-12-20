@@ -1,4 +1,4 @@
-package com.spring.study.web.dto;
+package com.spring.study.web.dto.auth;
 
 import lombok.Builder;
 import lombok.Data;

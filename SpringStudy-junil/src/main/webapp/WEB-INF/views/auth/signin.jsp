@@ -10,8 +10,8 @@
 로그인페이지
 
 <form action="/study/signin" method="post">
-	아이디: <input type="text" name="username"></br>
-	비밀번호: <input type="password" name="password"></br>
+	아이디: <input type="text" name="username" required="required"></br>
+	비밀번호: <input type="password" name="password" required="required"></br>
 	<button>로그인</button>
 </form>
 <button type="button" onclick="location.href='/study/signup'">회원가입</button>
