@@ -18,11 +18,11 @@ public class SigninReqDto {
 				.build();
 	}
 	
-	public SigninRespDto<?> toResponseDto(Map<Integer, String> data) {
+	public SigninRespDto toResponseDto(int signinFlag) {
 		return SigninRespDto.builder()
 				.username(username)
 				.password(password)
-				.data(data)
+				.signinFlag(signinFlag)
 				.build();
 	}
 }

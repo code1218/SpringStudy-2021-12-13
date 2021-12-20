@@ -13,5 +13,5 @@ public interface AuthService {
 	public boolean signup(SignupReqDto signupReqDto);
 	
 	//signin
-	public SigninRespDto<Map<Integer, String>> signin(SigninReqDto signinReqDto);
+	public SigninRespDto signin(SigninReqDto signinReqDto);
 }

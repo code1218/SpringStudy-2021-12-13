@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Builder
 @Data
-public class SigninRespDto<T> {
+public class SigninRespDto {
 	private String username;
 	private String password;
 	
-	private T data;
+	private int signinFlag;
 }

@@ -44,33 +44,12 @@ public class AuthServiceImpl implements AuthService {
 		}
 	}
 	
-	public String signinFlagMessage(int signinFlag) {
-		String message = null;
-		
-		if(signinFlag == 0) {
-			//존재하지 않는 아이디
-			message = "존재하지 않는 아이디입니다.";
-		}else if(signinFlag == 1) {
-			//비밀번호 오류
-			message = "비밀번호가 틀렸습니다.";
-		}else if(signinFlag == 2) {
-			//로그인 성공
-			message = "로그인 성공!";
-		}else {
-			//로직 오류
-		}
-		
-		return message;
-	}
-	
 	@Override
-	public SigninRespDto<Map<Integer, String>> signin(SigninReqDto signinReqDto) {
+	public SigninRespDto signin(SigninReqDto signinReqDto) {
 		User userEntity = signinReqDto.toEntity();
 		int signinFlag = userRepository.signin(userEntity);
-		Map<Integer, String> data = new HashMap<Integer, String>();
-		data.put(signinFlag, signinFlagMessage(signinFlag));
 		
-		SigninRespDto<Map<Integer, String>> signinRespDto = (SigninRespDto<Map<Integer, String>>)signinReqDto.toResponseDto(data);
+		SigninRespDto signinRespDto = signinReqDto.toResponseDto(signinFlag);
 		
 		return signinRespDto;
 	}
