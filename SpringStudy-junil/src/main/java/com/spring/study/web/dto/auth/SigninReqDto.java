@@ -1,7 +1,5 @@
 package com.spring.study.web.dto.auth;
 
-import java.util.Map;
-
 import com.spring.study.domain.user.User;
 
 import lombok.Data;

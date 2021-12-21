@@ -17,7 +17,7 @@
 	<button>로그인</button>
 </form>
 <button type="button" onclick="location.href='/study/signup'">회원가입</button>
-
+<input type="text" value="${principal.name }">
 <script type="text/javascript">
 	const signinFlag = document.querySelector('#signin-flag');
 	if(signinFlag.value == '0') {

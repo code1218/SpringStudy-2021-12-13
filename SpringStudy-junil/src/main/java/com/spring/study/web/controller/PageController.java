@@ -21,4 +21,9 @@ public class PageController {
 	public String signupForm() {
 		return "auth/signup";
 	}
+	
+	@RequestMapping(value = "/signup-ajax", method = RequestMethod.GET)
+	public String signupAjaxForm() {
+		return "auth/signupAjax";
+	}
 }

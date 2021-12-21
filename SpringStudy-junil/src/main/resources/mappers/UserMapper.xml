@@ -50,6 +50,15 @@
 			um.username = #{username};
 	</select>
 	
+	<select id="getUserByUsername" resultType="com.spring.study.domain.user.User" parameterType="String">
+		select
+			*
+		from
+			user_mst
+		where
+			username = #{username};
+	</select>
+	
 </mapper>
 
 

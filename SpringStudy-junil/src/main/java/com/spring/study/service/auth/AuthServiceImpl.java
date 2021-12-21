@@ -53,4 +53,9 @@ public class AuthServiceImpl implements AuthService {
 		
 		return signinRespDto;
 	}
+	
+	@Override
+	public User getUserByUsername(String username) {
+		return userRepository.getUserByUsername(username);
+	}
 }

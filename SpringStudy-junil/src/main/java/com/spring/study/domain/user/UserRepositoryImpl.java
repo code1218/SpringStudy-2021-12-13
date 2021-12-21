@@ -33,4 +33,9 @@ public class UserRepositoryImpl implements UserRepository {
 	public int signin(User user) {
 		return sqlSession.selectOne(NAME_SPACE + "signin", user);
 	}
+	
+	@Override
+	public User getUserByUsername(String username) {
+		return sqlSession.selectOne(NAME_SPACE + "getUserByUsername", username);
+	}
 }

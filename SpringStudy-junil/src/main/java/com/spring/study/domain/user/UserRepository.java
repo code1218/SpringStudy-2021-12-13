@@ -7,4 +7,5 @@ public interface UserRepository {
 	public int idCheck(String username);
 	public int insertUser(User user);
 	public int signin(User user);
+	public User getUserByUsername(String username);
 }
