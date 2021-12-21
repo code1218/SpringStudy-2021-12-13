@@ -4,6 +4,8 @@ const idCheck = document.querySelector('#id-check');
 const signupForm = document.querySelector('form');
 const signupBtn = document.querySelector('#signup-btn');
 
+var idCheckFlag = false;
+
 function usernameCheck(){
 	let signupObj = {
 		username: signupInputs[0].value,
@@ -18,7 +20,15 @@ function usernameCheck(){
 		data: signupObj,
 		dataType: "text",
 		success: function(data){
-			alert(data);
+			let signupRespObj = JSON.parse(data);
+			
+			idCheckFlag = signupRespObj.idCheckFlag;
+			
+			if(idCheckFlag == true){
+				alert('가입 가능한 아이디입니다.');
+			}else{
+				alert('이미 존재하는 아이디입니다.');
+			}
 		},
 		error: function(){
 			alert('비동기 처리 오류.');
@@ -50,7 +60,7 @@ signupBtn.onclick = () => {
 		if(checkFlag != 0) return;
 	}
 	
-	if(idCheckFlag.value != 'true') {
+	if(idCheckFlag != true) {
 		alert('아이디 중복확인을 해주세요.');
 		return;
 	}

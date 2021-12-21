@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,8 +17,6 @@ import com.spring.study.web.dto.auth.SigninReqDto;
 import com.spring.study.web.dto.auth.SigninRespDto;
 import com.spring.study.web.dto.auth.SignupReqDto;
 import com.spring.study.web.dto.auth.SignupRespDto;
-import com.spring.study.web.dto.authAjax.SignupReqAjaxDto;
-import com.spring.study.web.handler.Message;
 
 @Controller
 public class AuthController {
@@ -65,9 +64,21 @@ public class AuthController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/signup/username-check", method = RequestMethod.GET)
-	public String signupAjax(SignupReqAjaxDto signupReqAjaxDto) {
-		System.out.println(signupReqAjaxDto);
-		return "요청옴.";
+	public Object signupAjax(SignupReqDto signupReqDto) {
+		SignupRespDto signupRespDto = authService.usernameCheck(signupReqDto);
+		return signupRespDto;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/signin/ajax", method = RequestMethod.POST)
+	public Object signinAjax(@RequestBody SigninReqDto signinReqDto, HttpServletRequest request) {
+		SigninRespDto signinRespDto = authService.signin(signinReqDto);
+		if(signinRespDto.getSigninFlag() == 2) {
+			HttpSession session = request.getSession();
+			User loginUser = authService.getUserByUsername(signinRespDto.getUsername());
+			session.setAttribute("principal", loginUser);
+		}
+		return signinRespDto;
 	}
 	
 }

@@ -26,4 +26,9 @@ public class PageController {
 	public String signupAjaxForm() {
 		return "auth/signupAjax";
 	}
+	
+	@RequestMapping(value = "/signin-ajax", method = RequestMethod.GET)
+	public String signinAjaxForm() {
+		return "auth/signinAjax";
+	}
 }
